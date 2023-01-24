@@ -3,7 +3,7 @@ l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 def board():
     for i in range(3):
-        print(l[0 + i * 3], " ", l[1 + i * 3], " ", l[2 + i * 3])
+        print(l[0 + i * 3], " ", l[1 + i * 3], " ", l[2 + i * 3]) 
 
 
 def take_in(player):  # делаем ход
@@ -30,11 +30,11 @@ def win():
 
 
 def play_game():
-    global l
+    global l # Делаем глобальным список для того чтоб начинать игру заново
     c = 0
     while True:
         board()
-        if c % 2 == 0:
+        if c % 2 == 0: # Каждый четное число счетчика ход Х
             take_in("X")
         else:
             take_in("O")
@@ -42,13 +42,13 @@ def play_game():
         if check:
             board()
             print(check, "Победил в катке")
-            ng = input("Сыграем еще раз? Y | N ")
-            if ng == "Y" or ng == "y":
+            ng = input("Сыграем еще раз? Y | N ") # Врашиваем пользователя не желает ли он еще раз сыграть
+            if ng == "Y" or ng == "y": # Если Y то рисуем поле заново и вызываем функцию игры
                 l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
                 play_game()
             else:
                 break
-        c += 1
+        c += 1 # Увеличиваем счетчик чтоб не зациклиться
         if c >= 8:
             board()
             print("ничья в этой партии")
